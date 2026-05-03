@@ -1,7 +1,8 @@
 {
-  "name": "sempdc-scaffold",
+  "name": "somoselmejorpais",
   "version": "0.1.0",
   "private": true,
+  "author": "Felipe Carvajal Brown",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

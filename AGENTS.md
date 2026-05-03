@@ -14,7 +14,8 @@ Read this before writing any code, generating any content, or making any suggest
 ### Affiliation rules
 | Context | Use |
 |---|---|
-| Code — footers, `author` fields, package metadata | Felipe Carvajal Brown Software |
+| Code — `author` fields, package metadata | Felipe Carvajal Brown |
+| Project footers, branding | Felipe Carvajal Brown Software |
 | Security reports, responsible disclosure PDFs | Magíster en Simulaciones Numéricas, UPM |
 | Academic papers | UPM + ORCID 0000-0002-8300-7587 |
 | Never use | Instituto Igualdad, UC Chile, or any other prior affiliation |
@@ -55,10 +56,11 @@ Full spec: `docs/PRD.md`. Read it before making any architectural decisions.
 ## Stack
 
 - Node.js v24 / npm 11
-- TypeScript throughout
-- React + TypeScript + Vite (frontend)
-- Next.js preferred for full-stack, or Vite + Node API if separated
+- Next.js 16.2.4 + React 19 + TypeScript (App Router)
+- Tailwind CSS 4
 - Self-hosted fonts in `public/fonts/` — no Google Fonts, no CDN-loaded fonts
+
+**Next.js 16 has breaking changes.** Before writing any framework-specific code, read `node_modules/next/dist/docs/`. APIs and conventions may differ from your training data.
 
 ---
 
@@ -96,6 +98,33 @@ Scopes for this project: `rankings`, `feed`, `filter`, `config`, `ui`
 - No emojis unless Felipe uses them first
 - Give one recommendation — do not hedge with multiple options
 - If you need to research something before answering, say so and do it — do not guess
+
+---
+
+## Development Roadmap
+
+Status legend: `[ ]` todo · `[x]` done · `[-]` in progress
+
+**Phase 0 — Foundation**
+- [ ] 1. Strip Next.js boilerplate; configure Tailwind with Chilean flag palette (red, white, blue, neutral grays)
+- [ ] 2. Self-hosted font setup in `public/fonts/`
+- [ ] 3. Root layout: header, main, footer — footer branding "Felipe Carvajal Brown Software"
+- [ ] 4. `config/absurdist-rankings.ts` — TypeScript type + 8–10 seed entries
+
+**Phase 1 — Number 1 Fetcher (P0)**
+- [ ] 5. TypeScript interfaces for ranking cards (shared type for Serious and Absurdist)
+- [ ] 6. Server-side fetcher for World Bank API with 24-hour cache (`unstable_cache` or `fetch` cache)
+- [ ] 7. Rankings page UI — card grid, Serious/Absurdist visual split, Satirical badge
+- [ ] 8. Wire static Absurdist config into the same card grid
+
+**Phase 2 — Chaos Culture Feed (P1)**
+- [ ] 9. RSS aggregator (server-side) from two Chilean news sources, 72-hour filter before render
+- [ ] 10. Feed UI — list component with pagination or infinite scroll
+- [ ] 11. Cerveza Cristal filter — 2-second transition on video previews, toggle in localStorage
+
+**Phase 3 — Polish**
+- [ ] 12. Responsive pass: desktop (1280px+) and tablet (768px+)
+- [ ] 13. Core Web Vitals check: LCP < 2.5s, CLS < 0.1, FID < 100ms
 
 ---
 

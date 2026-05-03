@@ -30,9 +30,9 @@ Full product spec is in `docs/PRD.md`. Read it before making architectural decis
 ## Stack & Runtime
 
 - **Runtime:** Node.js v24 / npm 11
+- **Framework:** Next.js 16.2.4 + React 19, App Router
 - **Language:** TypeScript throughout
-- **Frontend:** React + TypeScript + Vite
-- **Backend:** Node.js (Next.js preferred for full-stack, or separate Vite frontend + Node API)
+- **Styling:** Tailwind CSS 4
 - **Fonts:** Self-hosted in `public/fonts/` — no Google Fonts
 
 ## Architecture Intent
@@ -86,5 +86,40 @@ Scope is optional but encouraged for this project: `rankings`, `feed`, `filter`,
 
 ## Commands
 
-> Project is pre-development. Update this section once `package.json` is created.
-> Note: when writing npm scripts or shell commands, never chain with `&&` — use separate commands or `;`.
+```
+npm run dev      # development server (http://localhost:3000)
+npm run build    # production build
+npm run start    # run production build locally
+npm run lint     # ESLint
+```
+
+Never chain shell commands with `&&` — use separate commands or `;`.
+
+## Next.js 16 — Breaking Changes
+
+This project uses **Next.js 16.2.4** and **React 19**. Both have breaking changes from prior versions. Before writing any Next.js-specific code, read the relevant guide in `node_modules/next/dist/docs/`. APIs, conventions, and file structure may differ from training data.
+
+## Development Roadmap
+
+Status legend: `[ ]` todo · `[x]` done · `[-]` in progress
+
+**Phase 0 — Foundation**
+- [x] 1. Strip Next.js boilerplate; configure Tailwind with Chilean flag palette (red, white, blue, neutral grays)
+- [x] 2. Self-hosted font setup in `public/fonts/`
+- [x] 3. Root layout: header, main, footer — footer branding "Felipe Carvajal Brown Software"
+- [ ] 4. `config/absurdist-rankings.ts` — TypeScript type + 8–10 seed entries
+
+**Phase 1 — Number 1 Fetcher (P0)**
+- [ ] 5. TypeScript interfaces for ranking cards (shared type for Serious and Absurdist)
+- [ ] 6. Server-side fetcher for World Bank API with 24-hour cache (`unstable_cache` or `fetch` cache)
+- [ ] 7. Rankings page UI — card grid, Serious/Absurdist visual split, Satirical badge
+- [ ] 8. Wire static Absurdist config into the same card grid
+
+**Phase 2 — Chaos Culture Feed (P1)**
+- [ ] 9. RSS aggregator (server-side) from two Chilean news sources, 72-hour filter before render
+- [ ] 10. Feed UI — list component with pagination or infinite scroll
+- [ ] 11. Cerveza Cristal filter — 2-second transition on video previews, toggle in localStorage
+
+**Phase 3 — Polish**
+- [ ] 12. Responsive pass: desktop (1280px+) and tablet (768px+)
+- [ ] 13. Core Web Vitals check: LCP < 2.5s, CLS < 0.1, FID < 100ms

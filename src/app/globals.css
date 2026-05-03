@@ -1,26 +1,53 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: "RutaCL";
+  src: url("/fonts/RutaCL_Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "RutaCL";
+  src: url("/fonts/RutaCL_Condensada.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "RutaCLSimbolos";
+  src: url("/fonts/RutaCL_simbolos.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "RutaCL", Arial, sans-serif;
+  --font-simbolos: "RutaCLSimbolos", sans-serif;
+
+  /* Chilean flag palette */
+  --color-cl-red: #D52B1E;
+  --color-cl-blue: #0039A6;
+  --color-cl-white: #FFFFFF;
+  --color-cl-star: #FFFFFF;
+
+  /* Neutrals */
+  --color-surface: #F5F5F5;
+  --color-surface-dark: #1A1A1A;
+  --color-text: #111111;
+  --color-text-muted: #555555;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: var(--color-cl-white);
+  --foreground: var(--color-text);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
 }
