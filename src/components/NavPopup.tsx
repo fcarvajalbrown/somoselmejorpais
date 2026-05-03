@@ -9,8 +9,12 @@ export function NavPopup() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    if (localStorage.getItem("popup-seen")) return;
     setVisible(true);
-    const t = setTimeout(() => setVisible(false), 5000);
+    const t = setTimeout(() => {
+      setVisible(false);
+      localStorage.setItem("popup-seen", "1");
+    }, 5000);
     return () => clearTimeout(t);
   }, []);
 
@@ -43,7 +47,7 @@ export function NavPopup() {
             <p className="text-base font-bold text-white leading-snug">
               presiona para deprimirte de Chile
             </p>
-            <p className="mt-1 text-xs text-white/70">se autodestruye en 5 segundos</p>
+            <p className="mt-1 text-xs text-white/70">Este popup se autodestruye en 5 segundos</p>
           </div>
         </div>
       </div>
