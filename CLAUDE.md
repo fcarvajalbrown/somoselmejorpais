@@ -115,7 +115,7 @@ Status legend: `[ ]` todo · `[x]` done · `[-]` in progress
 - [x] 5. TypeScript interfaces for ranking cards (shared type for Serious and Absurdist)
 - [x] 6. Server-side fetcher for World Bank API with 24-hour cache (`unstable_cache` or `fetch` cache)
 - [x] 7. Rankings page UI — card grid, Serious/Absurdist visual split, Satirical badge
-- [ ] 8. Wire static Absurdist config into the same card grid
+- [x] 8. Wire static Absurdist config into the same card grid
 
 **Phase 2 — Chaos Culture Feed (P1)**
 - [ ] 9. RSS aggregator (server-side) from two Chilean news sources, 72-hour filter before render
