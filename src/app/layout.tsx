@@ -14,7 +14,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="h-full antialiased">
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col relative">
+        <div className="mountain-scroll pointer-events-none fixed bottom-0 left-0 right-0 h-[300px] z-0" />
         <header className="bg-cl-blue text-white px-8 py-6">
           <div className="mx-auto max-w-6xl flex items-center justify-between">
             <a href="/" className="flex items-center gap-5 hover:opacity-80">
