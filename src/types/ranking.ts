@@ -8,6 +8,7 @@ export interface RankingCard {
   valor: string;
   fuente?: string;
   actualizadoEn?: string; // ISO date, only for API-fetched serious rankings
+  url?: string;
 }
 
 export interface RankingFetcher {

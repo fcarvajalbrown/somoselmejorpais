@@ -40,6 +40,7 @@ Full product spec is in `docs/PRD.md`. Read it before making architectural decis
 
 - Data fetching for rankings runs server-side and caches results; refresh interval is at least once per 24 hours.
 - Fetcher architecture is modular: each source is a separate file implementing a shared `RankingFetcher` interface. Three source types are supported: structured APIs (World Bank, UN, etc.), HTML scraping, and static config. Adding a source = adding one file.
+- Feed sources: 10 Chilean RSS feeds + Reddit r/chile + Reddit r/republicadechile, 72-hour filter, cached 1h.
 - Absurdist Rankings live in a config file (e.g., `config/absurdist-rankings.ts` or `.json`), not a database.
 - Feed items older than 72 hours must be filtered out before rendering.
 - No user authentication or session persistence beyond localStorage for UI toggles (e.g., Cerveza Cristal filter state).
@@ -118,7 +119,7 @@ Status legend: `[ ]` todo · `[x]` done · `[-]` in progress
 - [x] 8. Wire static Absurdist config into the same card grid
 
 **Phase 2 — Chaos Culture Feed (P1)**
-- [ ] 9. RSS aggregator (server-side) from two Chilean news sources, 72-hour filter before render
+- [x] 9. RSS aggregator (server-side) from two Chilean news sources, 72-hour filter before render
 - [x] 10. Feed UI — list component with pagination or infinite scroll
 - [ ] 11. Cerveza Cristal filter — 2-second transition on video previews, toggle in localStorage
 

@@ -14,10 +14,11 @@ export default function RootLayout({
   return (
     <html lang="es" className="h-full antialiased">
       <body className="min-h-full flex flex-col">
-        <header className="bg-cl-blue text-white px-6 py-4">
+        <header className="bg-cl-blue text-white px-8 py-6">
           <div className="mx-auto max-w-6xl flex items-center justify-between">
-            <a href="/" className="font-ruta text-xl font-bold hover:opacity-80">
-              Somos el Mejor País de Chile
+            <a href="/" className="flex items-center gap-5 hover:opacity-80">
+              <img src="/logo.svg" alt="Logo" className="h-20 w-20" />
+              <span className="font-ruta text-3xl font-bold">Somos el Mejor País de Chile</span>
             </a>
             <nav className="flex gap-6 text-sm font-semibold">
               <a href="/" className="hover:opacity-80">Rankings</a>

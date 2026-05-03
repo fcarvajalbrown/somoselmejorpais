@@ -1,5 +1,6 @@
 import Parser from "rss-parser";
 import type { FeedItem } from "@/types/feed";
+import { fetchRedditFeed } from "./reddit";
 
 const parser = new Parser({
   customFields: { item: [["media:content", "mediaContent"]] },
@@ -44,9 +45,14 @@ async function fetchSource(source: typeof SOURCES[number]): Promise<FeedItem[]> 
 }
 
 export async function fetchFeed(): Promise<FeedItem[]> {
-  const results = await Promise.allSettled(SOURCES.map(fetchSource));
-  return results
-    .filter((r): r is PromiseFulfilledResult<FeedItem[]> => r.status === "fulfilled")
-    .flatMap((r) => r.value)
-    .sort((a, b) => b.publicadoEn.getTime() - a.publicadoEn.getTime());
+  const [rssResults, redditItems] = await Promise.all([
+    Promise.allSettled(SOURCES.map(fetchSource)),
+    fetchRedditFeed(),
+  ]);
+  return [
+    ...rssResults
+      .filter((r): r is PromiseFulfilledResult<FeedItem[]> => r.status === "fulfilled")
+      .flatMap((r) => r.value),
+    ...redditItems,
+  ].sort((a, b) => b.publicadoEn.getTime() - a.publicadoEn.getTime());
 }

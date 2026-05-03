@@ -60,6 +60,7 @@ export const imfFetcher: RankingFetcher = {
         valor: "#1 Sudamérica",
         fuente: "IMF",
         actualizadoEn: now,
+        url: `https://www.imf.org/external/datamapper/${indicator.code}`,
       });
     }
 

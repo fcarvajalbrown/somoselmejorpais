@@ -39,6 +39,20 @@
   --color-surface-dark: #1A1A1A;
   --color-text: #111111;
   --color-text-muted: #555555;
+
+  /* Gold for Verificado badge */
+  --color-gold: #B8860B;
+
+  --animate-earthquake: earthquake 0.5s ease-in-out;
+}
+
+@keyframes earthquake {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  15%  { transform: translate(-3px, 2px) rotate(-0.4deg); }
+  30%  { transform: translate(3px, -1px) rotate(0.4deg); }
+  45%  { transform: translate(-2px, 3px) rotate(-0.3deg); }
+  60%  { transform: translate(2px, -2px) rotate(0.3deg); }
+  75%  { transform: translate(-1px, 2px) rotate(-0.2deg); }
 }
 
 :root {
