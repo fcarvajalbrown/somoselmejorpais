@@ -113,7 +113,7 @@ Status legend: `[ ]` todo · `[x]` done · `[-]` in progress
 **Phase 1 — Number 1 Fetcher (P0)**
 - [x] 5. TypeScript interfaces for ranking cards (shared type for Serious and Absurdist)
 - [x] 6. Server-side fetchers: World Bank, IMF, Wikipedia scraper — 24-hour cache via `fetch` revalidate
-- [x] 7. Rankings page UI — all cards mixed, Verificado badge for serio only, earthquake hover, per-request shuffle via `force-dynamic`
+- [x] 7. Rankings page UI — all cards mixed, Verificado badge for serio only, earthquake hover, client-side shuffle in `InfiniteCardGrid`
 - [x] 8. Wire static Absurdist config into the same card grid
 
 **Phase 2 — Chaos Culture Feed (P1)**
@@ -124,6 +124,9 @@ Status legend: `[ ]` todo · `[x]` done · `[-]` in progress
 **Phase 3 — Polish**
 - [x] 14. Logo seal (`public/logo.svg` + `src/app/icon.svg`): circular presidential seal, condor, poop silhouette, no text
 - [x] 15. Nav buttons with clear button styling; `NavPopup` one-time tooltip on entry (localStorage `popup-seen`)
+- [x] 16. Scrolling Andes mountain background fixed at viewport bottom (`public/mountains.svg`)
+- [x] 17. All external fetch calls have `AbortSignal.timeout(8000)` — page never hangs
+- [ ] 11. Cerveza Cristal filter — 2-second transition on video previews, toggle in localStorage
 - [ ] 12. Responsive pass: desktop (1280px+) and tablet (768px+)
 - [ ] 13. Core Web Vitals check: LCP < 2.5s, CLS < 0.1, FID < 100ms
 

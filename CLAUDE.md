@@ -40,7 +40,7 @@ Full product spec is in `docs/PRD.md`. Read it before making architectural decis
 
 - Data fetching for rankings runs server-side and caches results; refresh interval is at least once per 24 hours.
 - Fetcher architecture is modular: each source is a separate file implementing a shared `RankingFetcher` interface. Three source types are supported: structured APIs (World Bank, UN, etc.), HTML scraping, and static config. Adding a source = adding one file. Current fetchers: `world-bank`, `imf`, `wikipedia-scraper`.
-- Rankings page (`src/app/page.tsx`) uses `export const dynamic = "force-dynamic"` so cards are shuffled randomly on every request (underlying fetch calls still use their own data cache).
+- Rankings page (`src/app/page.tsx`) uses `export const revalidate = 86400` (ISR). Cards are shuffled client-side in `InfiniteCardGrid` via `useEffect` after hydration — never server-side, to avoid hanging requests on Hostinger.
 - Feed sources: 10 Chilean RSS feeds + Reddit r/chile + Reddit r/republicadechile, 72-hour filter, cached 1h. Reddit is feed-only — not a rankings source.
 - Absurdist Rankings live in `src/config/absurdist-rankings.ts`, not a database. Do not modify without owner approval — it is used by external collaborators.
 - Feed items older than 72 hours must be filtered out before rendering.
@@ -118,7 +118,7 @@ Status legend: `[ ]` todo · `[x]` done · `[-]` in progress
 **Phase 1 — Number 1 Fetcher (P0)**
 - [x] 5. TypeScript interfaces for ranking cards (shared type for Serious and Absurdist)
 - [x] 6. Server-side fetcher for World Bank API with 24-hour cache (`unstable_cache` or `fetch` cache)
-- [x] 7. Rankings page UI — card grid, all cards mixed (no split), Verificado badge for serio only, earthquake hover, force-dynamic shuffle
+- [x] 7. Rankings page UI — card grid, all cards mixed (no split), Verificado badge for serio only, earthquake hover, client-side shuffle
 - [x] 8. Wire static Absurdist config into the same card grid
 
 **Phase 2 — Chaos Culture Feed (P1)**
@@ -129,5 +129,8 @@ Status legend: `[ ]` todo · `[x]` done · `[-]` in progress
 **Phase 3 — Polish**
 - [x] 14. Logo seal (`public/logo.svg` + `src/app/icon.svg`): circular presidential seal, condor silhouette, poop silhouette, no text
 - [x] 15. Nav buttons with button styling; one-time welcome tooltip popup via `NavPopup` client component
+- [x] 16. Scrolling Andes mountain background (`public/mountains.svg`, CSS `@keyframes scroll-mountains`, fixed at viewport bottom)
+- [x] 17. Fetch timeouts — all external API calls use `AbortSignal.timeout(8000)` to fail fast and never hang the build
+- [ ] 11. Cerveza Cristal filter — 2-second transition on video previews, toggle in localStorage
 - [ ] 12. Responsive pass: desktop (1280px+) and tablet (768px+)
 - [ ] 13. Core Web Vitals check: LCP < 2.5s, CLS < 0.1, FID < 100ms
