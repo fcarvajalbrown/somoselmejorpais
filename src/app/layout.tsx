@@ -15,9 +15,15 @@ export default function RootLayout({
     <html lang="es" className="h-full antialiased">
       <body className="min-h-full flex flex-col">
         <header className="bg-cl-blue text-white px-6 py-4">
-          <span className="font-ruta text-xl font-bold">
-            Somos el Mejor País de Chile
-          </span>
+          <div className="mx-auto max-w-6xl flex items-center justify-between">
+            <a href="/" className="font-ruta text-xl font-bold hover:opacity-80">
+              Somos el Mejor País de Chile
+            </a>
+            <nav className="flex gap-6 text-sm font-semibold">
+              <a href="/" className="hover:opacity-80">Rankings</a>
+              <a href="/feed" className="hover:opacity-80">Caos Cultural</a>
+            </nav>
+          </div>
         </header>
         <main className="flex-1">{children}</main>
         <footer className="bg-cl-red text-white px-6 py-3 text-sm text-center">

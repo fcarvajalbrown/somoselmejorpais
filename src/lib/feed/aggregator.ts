@@ -39,7 +39,7 @@ async function fetchSource(source: typeof SOURCES[number]): Promise<FeedItem[]> 
       fuente: source.nombre,
       publicadoEn: new Date(item.pubDate ?? Date.now()),
       resumen: item.contentSnippet,
-      imagen: item.enclosure?.url ?? (item as Record<string, unknown>).mediaContent as string | undefined,
+      imagen: item.enclosure?.url ?? ((item as unknown as Record<string, unknown>).mediaContent as string | undefined),
     }));
 }
 

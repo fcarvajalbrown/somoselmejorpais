@@ -119,7 +119,7 @@ Status legend: `[ ]` todo · `[x]` done · `[-]` in progress
 
 **Phase 2 — Chaos Culture Feed (P1)**
 - [ ] 9. RSS aggregator (server-side) from two Chilean news sources, 72-hour filter before render
-- [ ] 10. Feed UI — list component with pagination or infinite scroll
+- [x] 10. Feed UI — list component with pagination or infinite scroll
 - [ ] 11. Cerveza Cristal filter — 2-second transition on video previews, toggle in localStorage
 
 **Phase 3 — Polish**
