@@ -46,17 +46,17 @@
 
   <!-- Poop silhouette below condor -->
   <!-- Base -->
-  <ellipse cx="100" cy="138" rx="13" ry="5.5" fill="#0039A6"/>
+  <ellipse cx="100" cy="156" rx="13" ry="5.5" fill="#0039A6"/>
   <!-- Middle -->
-  <ellipse cx="100" cy="130" rx="10" ry="5" fill="#0039A6"/>
+  <ellipse cx="100" cy="148" rx="10" ry="5" fill="#0039A6"/>
   <!-- Fill gap base-middle -->
-  <rect x="90" y="128" width="20" height="11" fill="#0039A6"/>
+  <rect x="90" y="146" width="20" height="11" fill="#0039A6"/>
   <!-- Top bump -->
-  <ellipse cx="100" cy="123" rx="7" ry="5" fill="#0039A6"/>
+  <ellipse cx="100" cy="141" rx="7" ry="5" fill="#0039A6"/>
   <!-- Fill gap middle-top -->
-  <rect x="91" y="121" width="18" height="10" fill="#0039A6"/>
+  <rect x="91" y="139" width="18" height="10" fill="#0039A6"/>
   <!-- Curl tip -->
-  <path d="M 100,118 C 100,114 103,111 106,112 C 109,113 109,117 106,119 C 104,120 101,119 100,118 Z" fill="#0039A6"/>
+  <path d="M 100,136 C 100,132 103,129 106,130 C 109,131 109,135 106,137 C 104,138 101,137 100,136 Z" fill="#0039A6"/>
 
   <!-- Small stars flanking condor -->
   <text x="68" y="83" text-anchor="middle" font-size="7" fill="#D52B1E">★</text>
