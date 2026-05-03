@@ -107,7 +107,7 @@ Status legend: `[ ]` todo · `[x]` done · `[-]` in progress
 - [x] 1. Strip Next.js boilerplate; configure Tailwind with Chilean flag palette (red, white, blue, neutral grays)
 - [x] 2. Self-hosted font setup in `public/fonts/`
 - [x] 3. Root layout: header, main, footer — footer branding "Felipe Carvajal Brown Software"
-- [ ] 4. `config/absurdist-rankings.ts` — TypeScript type + 8–10 seed entries
+- [x] 4. `config/absurdist-rankings.ts` — TypeScript type + 8–10 seed entries
 
 **Phase 1 — Number 1 Fetcher (P0)**
 - [ ] 5. TypeScript interfaces for ranking cards (shared type for Serious and Absurdist)
