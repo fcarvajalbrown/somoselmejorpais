@@ -15,8 +15,16 @@ export default function RootLayout({
   return (
     <html lang="es" className="h-full antialiased">
       <body className="min-h-full flex flex-col relative">
-        <div className="mountain-scroll pointer-events-none fixed bottom-0 left-0 right-0 h-[300px] z-0" />
-        <header className="bg-cl-blue text-white px-8 py-6">
+        {/* Mountains — always visible at viewport bottom, cards scroll past them */}
+        <div className="pointer-events-none fixed bottom-0 left-0 right-0 h-[300px] z-50 overflow-hidden">
+          <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#F5F5F5] to-transparent z-10" />
+          <div style={{ display: "flex", animation: "scroll-mountains 90s linear infinite" }}>
+            <img src="/mountains.svg" alt="" style={{ height: 300, width: 1200, flexShrink: 0 }} />
+            <img src="/mountains.svg" alt="" style={{ height: 300, width: 1200, flexShrink: 0 }} />
+            <img src="/mountains.svg" alt="" style={{ height: 300, width: 1200, flexShrink: 0 }} />
+          </div>
+        </div>
+        <header className="relative z-[60] bg-cl-blue text-white px-8 py-6">
           <div className="mx-auto max-w-6xl flex items-center justify-between">
             <a href="/" className="flex items-center gap-5 hover:opacity-80">
               <img src="/logo.svg" alt="Logo" className="h-20 w-20" />
@@ -25,8 +33,8 @@ export default function RootLayout({
             <NavPopup />
           </div>
         </header>
-        <main className="flex-1">{children}</main>
-        <footer className="bg-cl-red text-white px-6 py-3 text-sm text-center">
+        <main className="relative flex-1 pb-[300px]">{children}</main>
+        <footer className="relative z-[60] bg-cl-red text-white px-6 py-3 text-sm text-center">
           Felipe Carvajal Brown
         </footer>
       </body>

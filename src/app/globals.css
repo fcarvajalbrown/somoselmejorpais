@@ -56,16 +56,8 @@
 }
 
 @keyframes scroll-mountains {
-  from { background-position-x: 0; }
-  to   { background-position-x: -1200px; }
-}
-
-.mountain-scroll {
-  background-image: url('/mountains.svg');
-  background-repeat: repeat-x;
-  background-position: left bottom;
-  background-size: 1200px 300px;
-  animation: scroll-mountains 90s linear infinite;
+  from { transform: translateX(0); }
+  to   { transform: translateX(-1200px); }
 }
 
 :root {
