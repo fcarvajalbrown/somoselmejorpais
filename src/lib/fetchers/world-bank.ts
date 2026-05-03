@@ -47,7 +47,7 @@ async function fetchIndicator(
   code: string
 ): Promise<{ countryCode: string; value: number }[]> {
   const url = `${BASE}/country/all/indicator/${code}?format=json&mrv=1&per_page=300`;
-  const res = await fetch(url, { next: { revalidate: 86400 } });
+  const res = await fetch(url, { next: { revalidate: 86400 }, signal: AbortSignal.timeout(8000) });
   if (!res.ok) return [];
   const json = await res.json();
   const rows: { countryiso3code: string; value: number | null }[] = json[1] ?? [];

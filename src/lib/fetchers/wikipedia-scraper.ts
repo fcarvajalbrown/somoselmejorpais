@@ -54,6 +54,7 @@ export const wikipediaScraperFetcher: RankingFetcher = {
       const res = await fetch(target.url, {
         next: { revalidate: 86400 },
         headers: { "User-Agent": "SomosElMejorPais/1.0 (educational)" },
+        signal: AbortSignal.timeout(8000),
       });
       if (!res.ok) continue;
 

@@ -19,7 +19,7 @@ async function fetchIndicator(
   code: string
 ): Promise<Record<string, number>> {
   const url = `${BASE}/${code}`;
-  const res = await fetch(url, { next: { revalidate: 86400 } });
+  const res = await fetch(url, { next: { revalidate: 86400 }, signal: AbortSignal.timeout(8000) });
   if (!res.ok) return {};
   const json = await res.json();
   // IMF returns { values: { INDICATOR: { ISO2: { year: value, ... } } } }
