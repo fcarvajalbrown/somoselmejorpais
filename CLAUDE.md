@@ -47,7 +47,7 @@ Full product spec is in `docs/PRD.md`. Read it before making architectural decis
 
 ## Branding
 
-- Project footer and any `author` fields: **Felipe Carvajal Brown Software**
+- Project footer and any `author` fields: **Felipe Carvajal Brown**
 - Never use "Instituto Igualdad" or any other prior affiliation name.
 
 ## Performance Targets
@@ -108,13 +108,13 @@ Status legend: `[ ]` todo · `[x]` done · `[-]` in progress
 **Phase 0 — Foundation**
 - [x] 1. Strip Next.js boilerplate; configure Tailwind with Chilean flag palette (red, white, blue, neutral grays)
 - [x] 2. Self-hosted font setup in `public/fonts/`
-- [x] 3. Root layout: header, main, footer — footer branding "Felipe Carvajal Brown Software"
+- [x] 3. Root layout: header, main, footer — footer branding "Felipe Carvajal Brown"
 - [x] 4. `config/absurdist-rankings.ts` — TypeScript type + 8–10 seed entries
 
 **Phase 1 — Number 1 Fetcher (P0)**
 - [x] 5. TypeScript interfaces for ranking cards (shared type for Serious and Absurdist)
 - [x] 6. Server-side fetcher for World Bank API with 24-hour cache (`unstable_cache` or `fetch` cache)
-- [ ] 7. Rankings page UI — card grid, Serious/Absurdist visual split, Satirical badge
+- [x] 7. Rankings page UI — card grid, Serious/Absurdist visual split, Satirical badge
 - [ ] 8. Wire static Absurdist config into the same card grid
 
 **Phase 2 — Chaos Culture Feed (P1)**

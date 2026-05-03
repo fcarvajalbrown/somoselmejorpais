@@ -14,14 +14,14 @@ export default function RootLayout({
   return (
     <html lang="es" className="h-full antialiased">
       <body className="min-h-full flex flex-col">
-        <header className="bg-chile-blue text-white px-6 py-4">
+        <header className="bg-cl-blue text-white px-6 py-4">
           <span className="font-ruta text-xl font-bold">
             Somos el Mejor País de Chile
           </span>
         </header>
         <main className="flex-1">{children}</main>
-        <footer className="bg-chile-red text-white px-6 py-3 text-sm text-center">
-          Felipe Carvajal Brown Software
+        <footer className="bg-cl-red text-white px-6 py-3 text-sm text-center">
+          Felipe Carvajal Brown
         </footer>
       </body>
     </html>
