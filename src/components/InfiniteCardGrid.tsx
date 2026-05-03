@@ -7,29 +7,41 @@ import { ScrollReveal } from "./ScrollReveal";
 
 const BATCH = 9;
 
+function shuffle(arr: RankingCard[]): RankingCard[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 export function InfiniteCardGrid({ cards }: { cards: RankingCard[] }) {
+  const [deck, setDeck] = useState(cards);
   const [visible, setVisible] = useState(BATCH);
   const sentinelRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => { setDeck(shuffle(cards)); }, []);
 
   useEffect(() => {
     const el = sentinelRef.current;
     if (!el) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) setVisible((v) => Math.min(v + BATCH, cards.length));
+        if (entry.isIntersecting) setVisible((v) => Math.min(v + BATCH, deck.length));
       },
       { threshold: 0.1 }
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [cards.length]);
+  }, [deck.length]);
 
-  const done = visible >= cards.length;
+  const done = visible >= deck.length;
 
   return (
     <div>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {cards.slice(0, visible).map((card, i) => (
+        {deck.slice(0, visible).map((card, i) => (
           <ScrollReveal key={card.id} delay={(i % 3) * 80}>
             <RankingCardComponent card={card} />
           </ScrollReveal>
