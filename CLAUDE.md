@@ -19,6 +19,7 @@ Full product spec is in `docs/PRD.md`. Read it before making architectural decis
 - User accounts, voting, or any user-generated content
 - Community submission of Absurdist Rankings
 - Mobile app
+- Improved HTML scraper: generic multi-target scraper with configurable selectors, error reporting, and automatic Chile rank detection across arbitrary ranking pages
 
 ## Key Decisions
 
@@ -38,6 +39,7 @@ Full product spec is in `docs/PRD.md`. Read it before making architectural decis
 ## Architecture Intent
 
 - Data fetching for rankings runs server-side and caches results; refresh interval is at least once per 24 hours.
+- Fetcher architecture is modular: each source is a separate file implementing a shared `RankingFetcher` interface. Three source types are supported: structured APIs (World Bank, UN, etc.), HTML scraping, and static config. Adding a source = adding one file.
 - Absurdist Rankings live in a config file (e.g., `config/absurdist-rankings.ts` or `.json`), not a database.
 - Feed items older than 72 hours must be filtered out before rendering.
 - No user authentication or session persistence beyond localStorage for UI toggles (e.g., Cerveza Cristal filter state).
@@ -110,8 +112,8 @@ Status legend: `[ ]` todo · `[x]` done · `[-]` in progress
 - [x] 4. `config/absurdist-rankings.ts` — TypeScript type + 8–10 seed entries
 
 **Phase 1 — Number 1 Fetcher (P0)**
-- [ ] 5. TypeScript interfaces for ranking cards (shared type for Serious and Absurdist)
-- [ ] 6. Server-side fetcher for World Bank API with 24-hour cache (`unstable_cache` or `fetch` cache)
+- [x] 5. TypeScript interfaces for ranking cards (shared type for Serious and Absurdist)
+- [x] 6. Server-side fetcher for World Bank API with 24-hour cache (`unstable_cache` or `fetch` cache)
 - [ ] 7. Rankings page UI — card grid, Serious/Absurdist visual split, Satirical badge
 - [ ] 8. Wire static Absurdist config into the same card grid
 
