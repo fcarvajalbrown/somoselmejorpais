@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { WelcomeBanner } from "@/components/WelcomeBanner";
 
 export const metadata: Metadata = {
   title: "Somos el Mejor País de Chile",
@@ -20,17 +21,13 @@ export default function RootLayout({
               <img src="/logo.svg" alt="Logo" className="h-20 w-20" />
               <span className="font-ruta text-3xl font-bold">Somos el Mejor País de Chile</span>
             </a>
-            <nav className="flex gap-6 text-sm font-semibold">
-              <a href="/" className="hover:opacity-80">Rankings</a>
-              <div className="relative group">
-                <a href="/feed" className="hover:opacity-80">Caos Cultural</a>
-                <span className="pointer-events-none absolute top-full left-1/2 -translate-x-1/2 mt-2 whitespace-nowrap rounded-lg bg-cl-red px-3 py-1.5 text-xs font-normal normal-case tracking-normal text-white opacity-0 transition-opacity group-hover:opacity-100">
-                  presiona para deprimirte de Chile
-                </span>
-              </div>
+            <nav className="flex gap-4 text-base font-semibold">
+              <a href="/" className="rounded-lg px-5 py-2.5 hover:bg-white/20 transition-colors">Rankings</a>
+              <a href="/feed" className="rounded-lg px-5 py-2.5 hover:bg-white/20 transition-colors">Caos Cultural</a>
             </nav>
           </div>
         </header>
+        <WelcomeBanner />
         <main className="flex-1">{children}</main>
         <footer className="bg-cl-red text-white px-6 py-3 text-sm text-center">
           Felipe Carvajal Brown
