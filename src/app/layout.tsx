@@ -22,7 +22,12 @@ export default function RootLayout({
             </a>
             <nav className="flex gap-6 text-sm font-semibold">
               <a href="/" className="hover:opacity-80">Rankings</a>
-              <a href="/feed" className="hover:opacity-80">Caos Cultural</a>
+              <div className="relative group">
+                <a href="/feed" className="hover:opacity-80">Caos Cultural</a>
+                <span className="pointer-events-none absolute top-full left-1/2 -translate-x-1/2 mt-2 whitespace-nowrap rounded-lg bg-cl-red px-3 py-1.5 text-xs font-normal normal-case tracking-normal text-white opacity-0 transition-opacity group-hover:opacity-100">
+                  presiona para deprimirte de Chile
+                </span>
+              </div>
             </nav>
           </div>
         </header>
