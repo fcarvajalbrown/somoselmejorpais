@@ -9,7 +9,7 @@ export default async function Home() {
   const todos = [...serios, ...absurdistRankings];
 
   return (
-    <div className="bg-surface min-h-full">
+    <div className="min-h-full">
       <section className="mx-auto max-w-6xl px-6 py-12">
         <h2 className="mb-8 text-2xl font-bold text-cl-blue uppercase tracking-wide">
           Chile: Número Uno

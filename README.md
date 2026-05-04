@@ -2,7 +2,7 @@
 
 Dashboard satírico que celebra la identidad nacional chilena. Agrega rankings reales e inventados y los presenta como victorias nacionales irrefutables.
 
-**Sitio en vivo:** [red-quail-442294.hostingersite.com](https://red-quail-442294.hostingersite.com)
+**Sitio en vivo:** [https://somoselmejorpais.vercel.app/](https://somoselmejorpais.vercel.app/)
 
 ---
 

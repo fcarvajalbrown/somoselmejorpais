@@ -14,12 +14,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="h-full antialiased">
-      <body className="min-h-full flex flex-col relative">
-        <div className="pointer-events-none fixed bottom-0 left-0 right-0 h-[300px] z-[1] overflow-hidden">
-          <div style={{ display: "flex", animation: "scroll-mountains 90s linear infinite" }}>
-            <img src="/mountains.svg" alt="" style={{ height: 300, width: 1200, flexShrink: 0 }} />
-            <img src="/mountains.svg" alt="" style={{ height: 300, width: 1200, flexShrink: 0 }} />
-            <img src="/mountains.svg" alt="" style={{ height: 300, width: 1200, flexShrink: 0 }} />
+      <body className="min-h-full flex flex-col relative bg-surface">
+        {/* Mountains — fixed at viewport bottom, scroll horizontally, stay behind all content */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none fixed bottom-0 left-0 right-0 h-[300px] z-0 overflow-hidden"
+        >
+          <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#F5F5F5] to-transparent z-10" />
+          <div
+            className="flex"
+            style={{
+              animation: "scroll-mountains 120s linear infinite",
+              willChange: "transform",
+            }}
+          >
+            <img src="/mountains.svg" alt="" className="h-[300px] w-[1200px] flex-shrink-0 select-none" />
+            <img src="/mountains.svg" alt="" className="h-[300px] w-[1200px] flex-shrink-0 select-none" />
+            <img src="/mountains.svg" alt="" className="h-[300px] w-[1200px] flex-shrink-0 select-none" />
+            <img src="/mountains.svg" alt="" className="h-[300px] w-[1200px] flex-shrink-0 select-none" />
           </div>
         </div>
         <header className="relative z-[3] bg-cl-blue text-white px-8 py-6">

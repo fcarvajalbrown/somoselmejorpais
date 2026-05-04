@@ -16,7 +16,7 @@ export default async function FeedPage({
   const slice = items.slice((pagina - 1) * POR_PAGINA, pagina * POR_PAGINA);
 
   return (
-    <div className="bg-surface min-h-full">
+    <div className="min-h-full">
       <section className="mx-auto max-w-3xl px-6 py-12">
         <h2 className="mb-8 text-2xl font-bold text-cl-blue uppercase tracking-wide">
           Caos Cultural
